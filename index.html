@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jon García Echeverría</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--bg:#0a0a0f;--bg2:#111118;--card:#16161e;--border:#2a2a3a;--accent:#7c6af7;--accent2:#a78bfa;--text:#e2e2f0;--muted:#8888a8;--white:#ffffff}
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.7}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,15,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px}
+    .nav-logo{font-size:1.1rem;font-weight:700;color:var(--white)}
+    .nav-logo span{color:var(--accent)}
+    .nav-links{display:flex;align-items:center;gap:28px}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}
+    .nav-links a:hover{color:var(--white)}
+    .lang-switcher{display:flex;align-items:center;gap:4px;margin-left:16px}
+    .lang-btn{background:none;border:1px solid var(--border);color:var(--muted);padding:3px 10px;border-radius:6px;font-size:.8rem;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s}
+    .lang-btn.active{background:var(--accent);border-color:var(--accent);color:var(--white)}
+    .lang-btn:hover:not(.active){border-color:var(--accent);color:var(--accent)}
+    .hero{min-height:100vh;display:flex;align-items:center;padding:0 10%;background:radial-gradient(ellipse at 60% 40%,rgba(124,106,247,.12) 0%,transparent 65%)}
+    .hero-content{max-width:700px}
+    .hero-tag{display:inline-block;background:rgba(124,106,247,.15);color:var(--accent2);border:1px solid rgba(124,106,247,.3);padding:5px 14px;border-radius:20px;font-size:.8rem;font-weight:500;margin-bottom:24px}
+    .hero h1{font-size:clamp(2.5rem,6vw,4rem);font-weight:700;line-height:1.1;margin-bottom:20px;color:var(--white)}
+    .hero h1 span{color:var(--accent)}
+    .hero p{font-size:1.1rem;color:var(--muted);max-width:520px;margin-bottom:36px}
+    .hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+    .btn-primary{background:var(--accent);color:var(--white);padding:12px 28px;border-radius:10px;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .2s;border:none;cursor:pointer}
+    .btn-primary:hover{background:var(--accent2);transform:translateY(-1px)}
+    .btn-secondary{background:transparent;color:var(--text);padding:12px 28px;border-radius:10px;text-decoration:none;font-weight:600;font-size:.9rem;border:1px solid var(--border);transition:all .2s}
+    .btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+    section{padding:100px 10%}
+    section:nth-child(even){background:var(--bg2)}
+    .section-label{font-size:.75rem;font-weight:600;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+    .section-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:var(--white);margin-bottom:16px}
+    .section-sub{font-size:1rem;color:var(--muted);max-width:560px;margin-bottom:60px}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+    .about-photo{width:100%;aspect-ratio:4/5;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#1e1b4b 0%,#312e81 40%,#4c1d95 100%);display:flex;align-items:center;justify-content:center;font-size:5rem;border:1px solid var(--border);position:relative}
+    .about-photo-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.8),transparent);padding:20px;font-size:.75rem;color:var(--muted);text-align:center}
+    .about-text p{color:var(--muted);margin-bottom:18px;font-size:.97rem}
+    .about-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+    .about-link{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--border);color:var(--text);text-decoration:none;padding:8px 16px;border-radius:8px;font-size:.85rem;font-weight:500;transition:all .2s}
+    .about-link:hover{border-color:var(--accent);color:var(--accent)}
+    .timeline{position:relative;padding-left:32px}
+    .timeline::before{content:'';position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--accent),transparent)}
+    .timeline-item{position:relative;margin-bottom:48px}
+    .timeline-item::before{content:'';position:absolute;left:-29px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+    .timeline-header{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+    .timeline-title{font-size:1.05rem;font-weight:600;color:var(--white)}
+    .timeline-company{font-size:.9rem;color:var(--accent2);font-weight:500;margin-bottom:4px}
+    .timeline-date{font-size:.8rem;color:var(--muted);background:var(--card);padding:3px 10px;border-radius:6px;border:1px solid var(--border);white-space:nowrap}
+    .timeline-desc{color:var(--muted);font-size:.9rem}
+    .timeline-desc ul{padding-left:18px;margin-top:8px}
+    .timeline-desc li{margin-bottom:6px}
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+    .project-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;transition:all .3s}
+    .project-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+    .project-icon{font-size:2.2rem;margin-bottom:16px}
+    .project-title{font-size:1.1rem;font-weight:600;color:var(--white);margin-bottom:10px}
+    .project-desc{font-size:.88rem;color:var(--muted);margin-bottom:18px}
+    .project-tags{display:flex;flex-wrap:wrap;gap:8px}
+    .tag{background:rgba(124,106,247,.1);color:var(--accent2);padding:3px 10px;border-radius:6px;font-size:.78rem;border:1px solid rgba(124,106,247,.2)}
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+    .gallery-item{aspect-ratio:1;border-radius:12px;overflow:hidden;position:relative;transition:transform .2s}
+    .gallery-item:hover{transform:scale(1.03)}
+    .gallery-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:2.8rem;position:relative}
+    .gallery-label{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.6);font-size:.72rem;color:rgba(255,255,255,.7);padding:8px;text-align:center}
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+    .skill-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px}
+    .skill-category{font-size:.75rem;font-weight:600;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px}
+    .skill-list{display:flex;flex-wrap:wrap;gap:8px}
+    .skill-pill{background:var(--bg);border:1px solid var(--border);color:var(--text);padding:5px 12px;border-radius:8px;font-size:.82rem}
+    .edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+    .edu-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px}
+    .edu-icon{font-size:2rem;margin-bottom:14px}
+    .edu-degree{font-size:1rem;font-weight:600;color:var(--white);margin-bottom:6px}
+    .edu-school{font-size:.88rem;color:var(--accent2);margin-bottom:4px}
+    .edu-year{font-size:.82rem;color:var(--muted)}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+    .contact-info p{color:var(--muted);margin-bottom:28px}
+    .contact-items{display:flex;flex-direction:column;gap:14px}
+    .contact-item{display:flex;align-items:center;gap:12px;font-size:.9rem}
+    .contact-icon{width:40px;height:40px;background:var(--card);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+    .contact-item a{color:var(--text);text-decoration:none}
+    .contact-item a:hover{color:var(--accent)}
+    .contact-socials{display:flex;gap:12px;margin-top:28px}
+    .social-btn{width:44px;height:44px;background:var(--card);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;text-decoration:none;transition:all .2s}
+    .social-btn:hover{border-color:var(--accent);transform:translateY(-2px)}
+    footer{background:var(--bg);border-top:1px solid var(--border);padding:32px 10%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    .footer-text{font-size:.85rem;color:var(--muted)}
+    @media(max-width:768px){.nav-links a{display:none}section{padding:80px 5%}.hero{padding:0 5%}.about-grid,.contact-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Jon<span>.</span></div>
+  <div class="nav-links">
+    <a href="#sobre-mi" data-es="Sobre mí" data-en="About">Sobre mí</a>
+    <a href="#experiencia" data-es="Experiencia" data-en="Experience">Experiencia</a>
+    <a href="#proyectos" data-es="Proyectos" data-en="Projects">Proyectos</a>
+    <a href="#habilidades" data-es="Habilidades" data-en="Skills">Habilidades</a>
+    <a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a>
+    <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-content">
+    <div class="hero-tag">CTO &amp; Product Strategy Leader</div>
+    <h1>Hola, soy <span>Jon García</span><br/>Echeverría</h1>
+    <p data-es="Ingeniero industrial con perfil transversal y multidisciplinar, especializado en desarrollo de producto, estrategia tecnológica e innovación aplicada al deporte." data-en="Industrial engineer with a cross-functional and multidisciplinary profile, specialized in product development, technology strategy and innovation applied to sports.">Ingeniero industrial con perfil transversal y multidisciplinar, especializado en desarrollo de producto, estrategia tecnológica e innovación aplicada al deporte.</p>
+    <div class="hero-btns">
+      <a href="#experiencia" class="btn-primary" data-es="Ver experiencia" data-en="View experience">Ver experiencia</a>
+      <a href="#contacto" class="btn-secondary" data-es="Contactar" data-en="Contact me">Contactar</a>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section id="sobre-mi">
+  <div class="section-label" data-es="SOBRE MÍ" data-en="ABOUT ME">SOBRE MÍ</div>
+  <div class="about-grid">
+    <div>
+      <div class="about-photo">🧑‍💻
+        <div class="about-photo-label" data-es="📸 Reemplaza con tu foto" data-en="📸 Replace with your photo">📸 Reemplaza con tu foto</div>
+      </div>
+    </div>
+    <div class="about-text">
+      <h2 class="section-title" style="font-size:1.8rem;margin-bottom:20px">Jon García Echeverría</h2>
+      <p data-es="Soy ingeniero industrial con base en Donostia – San Sebastián, especializado en desarrollo de producto, estrategia tecnológica e innovación aplicada al deporte." data-en="I am an industrial engineer based in Donostia – San Sebastián, specializing in product development, technology strategy and innovation applied to sports.">Soy ingeniero industrial con base en Donostia – San Sebastián, especializado en desarrollo de producto, estrategia tecnológica e innovación aplicada al deporte.</p>
+      <p data-es="Llevo más de 6 años en Voon Sports, empresa donde he crecido desde Ingeniero en Prácticas hasta CTO. Lidero equipos multidisciplinares de hardware, firmware, software y diseño, coordinando proyectos de I+D+i con clientes como la Real Sociedad." data-en="I have spent over 6 years at Voon Sports, growing from Intern Engineer to CTO. I lead multidisciplinary teams across hardware, firmware, software and design, coordinating R&D projects with clients like Real Sociedad.">Llevo más de 6 años en Voon Sports, empresa donde he crecido desde Ingeniero en Prácticas hasta CTO. Lidero equipos multidisciplinares de hardware, firmware, software y diseño, coordinando proyectos de I+D+i con clientes como la Real Sociedad.</p>
+      <p data-es="También cofundé Sunion, empresa de soluciones fotovoltaicas, y soy entrenador y coordinador de fútbol base en el C.D. Vasconia con titulación UEFA B." data-en="I also co-founded Sunion, a photovoltaic solutions company, and I am a youth football coach and coordinator at C.D. Vasconia with UEFA B certification.">También cofundé Sunion, empresa de soluciones fotovoltaicas, y soy entrenador y coordinador de fútbol base en el C.D. Vasconia con titulación UEFA B.</p>
+      <p data-es="Fuera del trabajo me apasionan el trekking, los viajes, el CrossFit, la gastronomía y he hecho voluntariado en Nepal y Jordania." data-en="Outside work I am passionate about trekking, travel, CrossFit, gastronomy, and I have done volunteer work in Nepal and Jordan.">Fuera del trabajo me apasionan el trekking, los viajes, el CrossFit, la gastronomía y he hecho voluntariado en Nepal y Jordania.</p>
+      <div class="about-links">
+        <a href="https://www.linkedin.com/in/jon-garcia-echeverria-257634b2" target="_blank" class="about-link">💼 LinkedIn</a>
+        <a href="https://instagram.com/jongarcia94" target="_blank" class="about-link">📸 @jongarcia94</a>
+        <a href="https://github.com/jongaar2424-glitch" target="_blank" class="about-link">🐙 GitHub</a>
+        <a href="mailto:jongarciaecheverria@gmail.com" class="about-link">✉️ Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCIA -->
+<section id="experiencia">
+  <div class="section-label" data-es="TRAYECTORIA" data-en="CAREER">TRAYECTORIA</div>
+  <h2 class="section-title" data-es="Experiencia Profesional" data-en="Professional Experience">Experiencia Profesional</h2>
+  <p class="section-sub" data-es="Mi recorrido profesional en tecnología, producto y emprendimiento." data-en="My professional journey in technology, product and entrepreneurship.">Mi recorrido profesional en tecnología, producto y emprendimiento.</p>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <div><div class="timeline-title">CTO</div><div class="timeline-company">Voon Sports</div></div>
+        <div class="timeline-date" data-es="2023 – Actualidad" data-en="2023 – Present">2023 – Actualidad</div>
+      </div>
+      <div class="timeline-desc">
+        <ul class="es-content">
+          <li>Definición de la estrategia tecnológica y liderazgo en el desarrollo de productos interactivos orientados al rendimiento deportivo.</li>
+          <li>Coordinación de equipos de hardware, firmware, software y diseño.</li>
+          <li>Dirección de proyectos I+D+i desde la ideación hasta la industrialización.</li>
+          <li>Gestión de proveedores nacionales e internacionales (Francia, Italia, Alemania, Reino Unido, Chile, EE.UU.).</li>
+          <li>Case study oficial con la Real Sociedad.</li>
+          <li>Participación en decisiones estratégicas de negocio, planificación comercial y roadmap de producto.</li>
+        </ul>
+        <ul class="en-content" style="display:none">
+          <li>Definition of technology strategy and leadership in the development of interactive products for sports performance.</li>
+          <li>Coordination of hardware, firmware, software and design teams.</li>
+          <li>Direction of R&D projects from ideation to industrialization.</li>
+          <li>Management of national and international suppliers (France, Italy, Germany, UK, Chile, USA).</li>
+          <li>Official case study with Real Sociedad.</li>
+          <li>Participation in strategic business decisions, commercial planning and product roadmap.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <div><div class="timeline-title" data-es="Product Manager | Ingeniero Desarrollo de Producto" data-en="Product Manager | Product Development Engineer">Product Manager | Ingeniero Desarrollo de Producto</div><div class="timeline-company">Voon Sports</div></div>
+        <div class="timeline-date">2019 – 2023</div>
+      </div>
+      <div class="timeline-desc">
+        <ul class="es-content">
+          <li>Liderazgo en la evolución técnica de los principales productos de la compañía.</li>
+          <li>Programación y optimización del software de control mediante PLC (Tia Portal – Siemens).</li>
+          <li>Diseño de dashboards de análisis en Power BI con datos reales de sesiones deportivas.</li>
+          <li>Programación en Python para implementar mejoras y optimizar procesos de control.</li>
+        </ul>
+        <ul class="en-content" style="display:none">
+          <li>Leadership in the technical evolution of the company's main products.</li>
+          <li>Programming and optimization of control software via PLC (Tia Portal – Siemens).</li>
+          <li>Design of analysis dashboards in Power BI with real sports session data.</li>
+          <li>Python programming to implement improvements and optimize control processes.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <div><div class="timeline-title" data-es="Ingeniero en Prácticas" data-en="Intern Engineer">Ingeniero en Prácticas</div><div class="timeline-company">Voon Sports</div></div>
+        <div class="timeline-date">2017 – 2019</div>
+      </div>
+      <div class="timeline-desc">
+        <ul class="es-content">
+          <li>Desarrollo de software propio de visualización y análisis de datos aplicados al entrenamiento deportivo.</li>
+          <li>Colaboración con el equipo fundador en decisiones de producto y estrategia técnica.</li>
+        </ul>
+        <ul class="en-content" style="display:none">
+          <li>Development of proprietary software for data visualization and analysis applied to sports training.</li>
+          <li>Collaboration with the founding team on product decisions and technical strategy.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <div><div class="timeline-title" data-es="Cofundador &amp; Ingeniero de Proyectos" data-en="Co-founder &amp; Project Engineer">Cofundador &amp; Ingeniero de Proyectos</div><div class="timeline-company">Sunion</div></div>
+        <div class="timeline-date">2023 – 2024</div>
+      </div>
+      <div class="timeline-desc">
+        <ul class="es-content">
+          <li>Cofundador de empresa especializada en soluciones fotovoltaicas.</li>
+          <li>Gestión de subvenciones, análisis de viabilidad y tramitación administrativa.</li>
+        </ul>
+        <ul class="en-content" style="display:none">
+          <li>Co-founder of a company specializing in photovoltaic solutions.</li>
+          <li>Grant management, feasibility analysis and administrative processing.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-header">
+        <div><div class="timeline-title" data-es="Coordinador, Entrenador &amp; Dirección Deportiva" data-en="Coordinator, Coach &amp; Sports Director">Coordinador, Entrenador &amp; Dirección Deportiva</div><div class="timeline-company">C.D. Vasconia</div></div>
+        <div class="timeline-date">2015 – 2025</div>
+      </div>
+      <div class="timeline-desc">
+        <ul class="es-content"><li>Entrenador y coordinador de fútbol base. Titulado UEFA B.</li></ul>
+        <ul class="en-content" style="display:none"><li>Youth football coach and coordinator. UEFA B certified.</li></ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:70px">
+    <div class="section-label" data-es="FORMACIÓN" data-en="EDUCATION">FORMACIÓN</div>
+    <h2 class="section-title" style="font-size:1.8rem;margin-bottom:40px" data-es="Educación" data-en="Education">Educación</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-degree" data-es="Master Universitario en Ingeniería Industrial" data-en="Master's Degree in Industrial Engineering">Master Universitario en Ingeniería Industrial</div>
+        <div class="edu-school">Tecnun – Universidad de Navarra</div>
+        <div class="edu-year">2016 – 2017</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-degree" data-es="Grado en Ingeniería en Tecnologías Industriales" data-en="Bachelor's Degree in Industrial Technologies Engineering">Grado en Ingeniería en Tecnologías Industriales</div>
+        <div class="edu-school">Tecnun – Universidad de Navarra</div>
+        <div class="edu-year">2012 – 2016</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section id="proyectos">
+  <div class="section-label" data-es="PROYECTOS" data-en="PROJECTS">PROYECTOS</div>
+  <h2 class="section-title" data-es="Proyectos Destacados" data-en="Featured Projects">Proyectos Destacados</h2>
+  <p class="section-sub" data-es="Iniciativas donde he aplicado tecnología, estrategia y liderazgo." data-en="Initiatives where I have applied technology, strategy and leadership.">Iniciativas donde he aplicado tecnología, estrategia y liderazgo.</p>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-icon">⚽</div>
+      <div class="project-title">Voon Sports</div>
+      <div class="project-desc" data-es="Desarrollo de productos interactivos de alto rendimiento para el entrenamiento deportivo profesional. Case study oficial con la Real Sociedad." data-en="Development of high-performance interactive products for professional sports training. Official case study with Real Sociedad.">Desarrollo de productos interactivos de alto rendimiento para el entrenamiento deportivo profesional. Case study oficial con la Real Sociedad.</div>
+      <div class="project-tags"><span class="tag">CTO</span><span class="tag">Hardware</span><span class="tag">Python</span><span class="tag">PLC</span><span class="tag">Power BI</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-icon">☀️</div>
+      <div class="project-title">Sunion</div>
+      <div class="project-desc" data-es="Cofundador de startup especializada en soluciones fotovoltaicas. Gestión desde la viabilidad técnica hasta la tramitación de subvenciones." data-en="Co-founder of a startup specializing in photovoltaic solutions. Full management from technical feasibility to grant applications.">Cofundador de startup especializada en soluciones fotovoltaicas. Gestión desde la viabilidad técnica hasta la tramitación de subvenciones.</div>
+      <div class="project-tags"><span class="tag" data-es="Emprendimiento" data-en="Entrepreneurship">Emprendimiento</span><span class="tag" data-es="Energía Solar" data-en="Solar Energy">Energía Solar</span><span class="tag" data-es="Ingeniería" data-en="Engineering">Ingeniería</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-icon">🌍</div>
+      <div class="project-title" data-es="Voluntariado Internacional" data-en="International Volunteering">Voluntariado Internacional</div>
+      <div class="project-desc" data-es="Proyectos de voluntariado en Nepal y Jordania, colaborando con comunidades locales en iniciativas de desarrollo." data-en="Volunteering projects in Nepal and Jordan, collaborating with local communities on development initiatives.">Proyectos de voluntariado en Nepal y Jordania, colaborando con comunidades locales en iniciativas de desarrollo.</div>
+      <div class="project-tags"><span class="tag">Nepal</span><span class="tag" data-es="Jordania" data-en="Jordan">Jordania</span><span class="tag" data-es="Voluntariado" data-en="Volunteering">Voluntariado</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- HABILIDADES -->
+<section id="habilidades">
+  <div class="section-label" data-es="HABILIDADES" data-en="SKILLS">HABILIDADES</div>
+  <h2 class="section-title" data-es="Skills &amp; Herramientas" data-en="Skills &amp; Tools">Skills &amp; Herramientas</h2>
+  <p class="section-sub" data-es="Tecnologías, plataformas e idiomas con los que trabajo." data-en="Technologies, platforms and languages I work with.">Tecnologías, plataformas e idiomas con los que trabajo.</p>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-category" data-es="TECNOLOGÍA" data-en="TECHNOLOGY">TECNOLOGÍA</div>
+      <div class="skill-list">
+        <span class="skill-pill">C++</span><span class="skill-pill">Python</span><span class="skill-pill">MySQL</span>
+        <span class="skill-pill">Tia Portal</span><span class="skill-pill">Power BI</span><span class="skill-pill">Tableau</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-category" data-es="NEGOCIO DIGITAL" data-en="DIGITAL BUSINESS">NEGOCIO DIGITAL</div>
+      <div class="skill-list">
+        <span class="skill-pill">Shopify</span><span class="skill-pill">Google Ads</span><span class="skill-pill">Klaviyo</span>
+        <span class="skill-pill">Holded</span><span class="skill-pill">DaVinci</span><span class="skill-pill">Trello</span>
+        <span class="skill-pill">Photoshop</span><span class="skill-pill">Illustrator</span><span class="skill-pill">Microsoft 365</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-category" data-es="IDIOMAS" data-en="LANGUAGES">IDIOMAS</div>
+      <div class="skill-list">
+        <span class="skill-pill" data-es="Español (Nativo)" data-en="Spanish (Native)">Español (Nativo)</span>
+        <span class="skill-pill" data-es="Euskera (Nativo)" data-en="Basque (Native)">Euskera (Nativo)</span>
+        <span class="skill-pill" data-es="Inglés (Fluido)" data-en="English (Fluent)">Inglés (Fluido)</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-category" data-es="INTERESES" data-en="INTERESTS">INTERESES</div>
+      <div class="skill-list">
+        <span class="skill-pill" data-es="Trekking" data-en="Trekking">Trekking</span>
+        <span class="skill-pill" data-es="Viajes" data-en="Travel">Viajes</span>
+        <span class="skill-pill" data-es="Deportes de equipo" data-en="Team Sports">Deportes de equipo</span>
+        <span class="skill-pill">CrossFit</span>
+        <span class="skill-pill" data-es="Gastronomía" data-en="Gastronomy">Gastronomía</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria">
+  <div class="section-label" data-es="GALERÍA" data-en="GALLERY">GALERÍA</div>
+  <h2 class="section-title" data-es="Momentos" data-en="Moments">Momentos</h2>
+  <p class="section-sub" data-es="Vida personal y profesional. Reemplaza los placeholders con tus fotos añadiendo una etiqueta img." data-en="Personal and professional life. Replace the placeholders with your photos by adding an img tag.">Vida personal y profesional. Reemplaza los placeholders con tus fotos añadiendo una etiqueta img.</p>
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <div class="gallery-placeholder" style="background:linear-gradient(135deg,#1e3a5f,#2563eb)">⚽<div class="gallery-label" data-es="Fútbol / Entrenamiento" data-en="Football / Training">Fútbol / Entrenamiento</div></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder" style="background:linear-gradient(135deg,#14532d,#16a34a)">🏔️<div class="gallery-label" data-es="Trekking / Montaña" data-en="Trekking / Mountain">Trekking / Montaña</div></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder" style="background:linear-gradient(135deg,#7c2d12,#ea580c)">🌏<div class="gallery-label">Nepal</div></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder" style="background:linear-gradient(135deg,#4a1d96,#7c3aed)">🕌<div class="gallery-label" data-es="Jordania" data-en="Jordan">Jordania</div></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder" style="background:linear-gradient(135deg,#831843,#db2777)">🏋️<div class="gallery-label">CrossFit</div></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder" style="background:linear-gradient(135deg,#0c4a6e,#0284c7)">🍽️<div class="gallery-label" data-es="Gastronomía" data-en="Gastronomy">Gastronomía</div></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder" style="background:linear-gradient(135deg,#1c1917,#57534e)">💻<div class="gallery-label" data-es="Tecnología / Trabajo" data-en="Technology / Work">Tecnología / Trabajo</div></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder" style="background:linear-gradient(135deg,#064e3b,#059669)">✈️<div class="gallery-label" data-es="Viajes" data-en="Travel">Viajes</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="section-label" data-es="CONTACTO" data-en="CONTACT">CONTACTO</div>
+  <h2 class="section-title" data-es="Hablemos" data-en="Let's talk">Hablemos</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <p data-es="Si tienes un proyecto interesante, una oportunidad de colaboración o simplemente quieres conectar, no dudes en escribirme." data-en="If you have an interesting project, a collaboration opportunity or simply want to connect, feel free to reach out.">Si tienes un proyecto interesante, una oportunidad de colaboración o simplemente quieres conectar, no dudes en escribirme.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-icon">&#x2709;&#xFE0F;</div>
+          <a href="mailto:jongarciaecheverria@gmail.com">jongarciaecheverria@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">&#x1F4CD;</div>
+          <span data-es="Donostia - San Sebastian, Espana" data-en="Donostia - San Sebastian, Spain">Donostia - San Sebastian, Espana</span>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">&#x1F4BC;</div>
+          <a href="https://www.linkedin.com/in/jon-garcia-echeverria-257634b2" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+      <div class="contact-socials">
+        <a href="https://www.linkedin.com/in/jon-garcia-echeverria-257634b2" target="_blank" class="social-btn">&#x1F4BC;</a>
+        <a href="https://instagram.com/jongarcia94" target="_blank" class="social-btn">&#x1F4F8;</a>
+        <a href="mailto:jongarciaecheverria@gmail.com" class="social-btn">&#x2709;&#xFE0F;</a>
+      </div>
+    </div>
+    <div>
+      <form onsubmit="return false;" style="display:flex;flex-direction:column;gap:16px">
+        <div>
+          <label style="font-size:.85rem;color:var(--muted);display:block;margin-bottom:6px" data-es="Nombre" data-en="Name">Nombre</label>
+          <input type="text" style="width:100%;background:var(--card);border:1px solid var(--border);color:var(--text);padding:10px 14px;border-radius:8px;font-family:'Inter',sans-serif;font-size:.9rem;outline:none" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"/>
+        </div>
+        <div>
+          <label style="font-size:.85rem;color:var(--muted);display:block;margin-bottom:6px">Email</label>
+          <input type="email" style="width:100%;background:var(--card);border:1px solid var(--border);color:var(--text);padding:10px 14px;border-radius:8px;font-family:'Inter',sans-serif;font-size:.9rem;outline:none" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"/>
+        </div>
+        <div>
+          <label style="font-size:.85rem;color:var(--muted);display:block;margin-bottom:6px" data-es="Mensaje" data-en="Message">Mensaje</label>
+          <textarea rows="5" style="width:100%;background:var(--card);border:1px solid var(--border);color:var(--text);padding:10px 14px;border-radius:8px;font-family:'Inter',sans-serif;font-size:.9rem;outline:none;resize:vertical" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+        </div>
+        <button class="btn-primary" type="submit" data-es="Enviar mensaje" data-en="Send message">Enviar mensaje</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-text">2025 Jon Garcia Echeverria</div>
+  <div class="footer-text" data-es="Hecho con dedicacion" data-en="Made with dedication">Hecho con dedicacion</div>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+  });
+  document.querySelectorAll('[data-' + lang + ']').forEach(function(el) {
+    el.textContent = el.getAttribute('data-' + lang);
+  });
+  document.querySelectorAll('.es-content').forEach(function(el) {
+    el.style.display = lang === 'es' ? '' : 'none';
+  });
+  document.querySelectorAll('.en-content').forEach(function(el) {
+    el.style.display = lang === 'en' ? '' : 'none';
+  });
+  document.documentElement.lang = lang;
+  localStorage.setItem('lang', lang);
+}
+(function() {
+  var saved = localStorage.getItem('lang') || 'es';
+  setLang(saved);
+})();
+</script>
+</body>
+</html>
