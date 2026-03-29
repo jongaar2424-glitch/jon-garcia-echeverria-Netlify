@@ -186,6 +186,28 @@
     .skill-pill { background:var(--bg); border:1px solid var(--border); color:var(--muted); padding:5px 12px; border-radius:5px; font-size:.8rem; transition:all .2s; }
     .skill-pill:hover { border-color:var(--border-h); color:var(--text); }
 
+    /* MODAL SECTIONS */
+    .modal-section { margin-bottom:1.5rem; }
+    .modal-section-title { font-size:.7rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; padding-bottom:6px; border-bottom:1px solid var(--border); }
+    .modal-bullets { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:7px; }
+    .modal-bullets li { font-size:.88rem; color:var(--muted); line-height:1.6; display:flex; align-items:flex-start; gap:8px; }
+    .modal-bullets li::before { content:'—'; color:var(--accent); flex-shrink:0; font-size:.8rem; margin-top:1px; }
+    .modal-badge { display:inline-block; background:var(--accent-dim); color:var(--accent); border:1px solid rgba(201,169,110,.25); font-size:.72rem; padding:2px 8px; border-radius:4px; font-weight:500; margin-top:4px; }
+
+    /* COACHING PROFILE */
+    .coaching-profile { background:var(--accent-dim); border:1px solid rgba(201,169,110,.2); border-left:3px solid var(--accent); border-radius:0 6px 6px 0; padding:14px 18px; margin-top:14px; display:flex; flex-direction:column; gap:10px; }
+    .coaching-profile-item { display:flex; align-items:flex-start; gap:10px; }
+    .coaching-profile-icon { color:var(--accent); font-size:.75rem; margin-top:3px; flex-shrink:0; }
+    .coaching-profile-text { font-size:.85rem; color:var(--text); line-height:1.6; }
+    .coaching-profile-text strong { color:var(--accent); font-weight:500; }
+
+    /* COACHING HIGHLIGHTS */
+    .coaching-highlights { display:flex; flex-direction:column; gap:10px; margin-top:14px; }
+    .coaching-highlight { display:flex; align-items:flex-start; gap:10px; }
+    .coaching-highlight-dot { width:4px; height:4px; border-radius:50%; background:var(--accent); margin-top:7px; flex-shrink:0; }
+    .coaching-highlight-text { font-size:.88rem; color:var(--text); line-height:1.6; }
+    .coaching-highlight-text strong { color:var(--accent); font-weight:500; }
+
     /* TRAVEL STRIP */
     .travel-strip { margin-bottom: 48px; }
     .travel-strip-label { font-size:.67rem; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--muted2); margin-bottom:12px; }
@@ -226,8 +248,9 @@
     .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,6vw,5rem); align-items:start; }
     .contact-lead { font-size:1rem; color:var(--muted); margin-bottom:36px; line-height:1.8; }
     .contact-items { display:flex; flex-direction:column; gap:16px; }
+    .contact-item { font-size:.95rem; padding:6px 0; border-bottom:1px solid var(--border); }
+    .contact-icon { width:36px; height:36px; background:var(--card); border:1px solid var(--border); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
     .contact-item { display:flex; align-items:center; gap:14px; font-size:.9rem; }
-    .contact-icon { width:42px; height:42px; background:var(--card); border:1px solid var(--border); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
     .contact-item a { color:var(--text); text-decoration:none; transition:color .2s; }
     .contact-item a:hover { color:var(--accent); }
     .contact-socials { display:flex; gap:10px; margin-top:28px; }
@@ -314,8 +337,8 @@
       <div class="hero-stat"><span class="hero-stat-num">Real Sociedad</span><span class="hero-stat-label" data-es="case study oficial" data-en="official case study">case study oficial</span></div>
     </div>
     <div class="hero-btns reveal reveal-delay-3">
-      <a href="#experiencia" class="btn-primary" data-es="Ver experiencia" data-en="View experience">Ver experiencia</a>
-      <a href="#contacto" class="btn-secondary" data-es="Contactar" data-en="Get in touch">Contactar</a>
+      <a href="#experiencia" class="btn-primary" data-es="Ver recorrido" data-en="View journey">Ver recorrido</a>
+      <a href="#contacto" class="btn-secondary" data-es="Contacto" data-en="Contact">Contacto</a>
     </div>
   </div>
 </section>
@@ -329,10 +352,11 @@
     </div>
     <div class="about-text">
       <h2 class="about-name reveal">Jon García Echeverría</h2>
-      <p class="reveal" data-es="Soy ingeniero industrial con base en Donostia – San Sebastián, especializado en desarrollo de producto, estrategia tecnológica e innovación aplicada al deporte." data-en="I'm an industrial engineer based in Donostia – San Sebastián, specializing in product development, technology strategy and innovation applied to sports.">Soy ingeniero industrial con base en Donostia – San Sebastián, especializado en desarrollo de producto, estrategia tecnológica e innovación aplicada al deporte.</p>
+      <p class="reveal" data-es="Soy ingeniero industrial con base en Donostia – San Sebastián, especializado en desarrollo de producto y estrategia tecnológica." data-en="I'm an industrial engineer based in Donostia – San Sebastián, specializing in product development and technology strategy.">Soy ingeniero industrial con base en Donostia – San Sebastián, especializado en desarrollo de producto y estrategia tecnológica.</p>
       <p class="reveal" data-es="Llevo más de 6 años en Voon Sports, creciendo desde Ingeniero en Prácticas hasta CTO. Lidero equipos multidisciplinares de hardware, firmware, software y diseño, con proyectos de I+D+i junto a la Real Sociedad." data-en="I've spent over 6 years at Voon Sports, growing from Intern to CTO. I lead multidisciplinary teams across hardware, firmware, software and design, running R&D projects with Real Sociedad.">Llevo más de 6 años en Voon Sports, creciendo desde Ingeniero en Prácticas hasta CTO. Lidero equipos multidisciplinares de hardware, firmware, software y diseño, con proyectos de I+D+i junto a la Real Sociedad.</p>
       <p class="reveal" data-es="También cofundé Sunion, empresa de soluciones fotovoltaicas, y soy entrenador de fútbol base en el Club Deportivo Vasconia con titulación UEFA B." data-en="I also co-founded Sunion, a photovoltaic solutions company, and coach youth football at Club Deportivo Vasconia with UEFA B certification.">También cofundé Sunion, empresa de soluciones fotovoltaicas, y soy entrenador de fútbol base en el Club Deportivo Vasconia con titulación UEFA B.</p>
-      <p class="reveal" data-es="Fuera del trabajo me apasionan el trekking, los viajes, el CrossFit, la gastronomía — y he hecho voluntariado en Nepal y Jordania." data-en="Outside work I love trekking, travel, CrossFit, gastronomy — and I've volunteered in Nepal and Jordan.">Fuera del trabajo me apasionan el trekking, los viajes, el CrossFit, la gastronomía — y he hecho voluntariado en Nepal y Jordania.</p>
+      <p class="reveal" data-es="Me interesa especialmente construir cosas útiles, bien pensadas y sostenibles en el tiempo." data-en="I'm particularly interested in building things that are useful, well thought-out and sustainable over time.">Me interesa especialmente construir cosas útiles, bien pensadas y sostenibles en el tiempo.</p>
+      <p class="reveal" data-es="Fuera del trabajo, disfruto del trekking, los viajes y el deporte." data-en="Outside work, I enjoy trekking, travel and sport.">Fuera del trabajo, disfruto del trekking, los viajes y el deporte.</p>
       <div class="about-links reveal">
         <a href="https://www.linkedin.com/in/jon-garcia-echeverria-257634b2" target="_blank" class="about-link">💼 LinkedIn</a>
         <a href="https://instagram.com/jongarcia94" target="_blank" class="about-link">📸 @jongarcia94</a>
@@ -396,7 +420,7 @@
       </div>
       <div class="timeline-desc">
         <ul class="es-content"><li>Entrenador y coordinador de fútbol base. Titulado UEFA B.</li></ul>
-        <ul class="en-content" style="display:none"><li>Youth football coach and coordinator. UEFA B certified.</li></ul>
+        <ul class="en-content" style="display:none"><li>Youth football coach and coordinator at one of Gipuzkoa's leading clubs, with all regional and Basque Country categories.</li><li>The club competes in Juvenil División de Honor, one of the most competitive youth football divisions in Spain.</li><li>Participation in the sporting management and scouting group.</li><li>Organisation of summer football technology camps.</li><li>Driving the digitalisation and data analysis applied to the club's sports performance.</li><li>UEFA B certified.</li></ul>
       </div>
     </div>
   </div>
@@ -448,8 +472,8 @@
       </div>
       <div class="modal-highlight">
         <div class="modal-highlight-title" data-es="Equipo y gestión" data-en="Team & management">Equipo y gestión</div>
-        <div class="modal-highlight-text es-content" data-lang="es">Coordiné equipos multidisciplinares de hardware, firmware, software y diseño, gestionando proveedores en Francia, Italia, Alemania, Reino Unido, Chile y EE.UU. y participando en las decisiones estratégicas del negocio.</div>
-        <div class="modal-highlight-text en-content" style="display:none" data-lang="en">I coordinated multidisciplinary teams across hardware, firmware, software and design, managing suppliers in France, Italy, Germany, UK, Chile and USA, and participating in strategic business decisions.</div>
+        <div class="modal-highlight-text es-content" data-lang="es">Coordinación de equipos multidisciplinares de hardware, firmware, software y diseño, con gestión de proveedores en Francia, Italia, Alemania, Reino Unido, Chile y EE.UU. y participación en las decisiones estratégicas del negocio.</div>
+        <div class="modal-highlight-text en-content" style="display:none" data-lang="en">Coordination of multidisciplinary teams across hardware, firmware, software and design, managing suppliers in France, Italy, Germany, UK, Chile and USA, and participating in strategic business decisions.</div>
       </div>
     </div>
   </div>
@@ -505,24 +529,62 @@
   </div>
   <div class="modal-images" id="vasconia-images"></div>
   <div class="modal-body">
-    <p class="es-content" data-lang="es">Diez años ligado al Club Deportivo Vasconia compaginando el trabajo con la pasión por el fútbol. Empecé entrenando y fui asumiendo más responsabilidades hasta participar en la dirección deportiva del club.</p>
-    <p class="en-content" style="display:none" data-lang="en">Ten years connected to Club Deportivo Vasconia, combining work with a passion for football. I started as a coach and gradually took on more responsibilities until joining the club's sporting management.</p>
+    <p class="es-content" data-lang="es">Diez años ligado al Club Deportivo Vasconia compaginando el trabajo con la pasión por el fútbol. Empecé entrenando y fui asumiendo más responsabilidades hasta participar en la dirección deportiva del club. Titulado UEFA B (RFEF).</p>
+    <p class="en-content" style="display:none" data-lang="en">Ten years connected to Club Deportivo Vasconia, combining work with a passion for football. I started as a coach and gradually took on more responsibilities until joining the club's sporting management. UEFA B Licence (RFEF) certified.</p>
     <div class="modal-highlights">
+
       <div class="modal-highlight">
         <div class="modal-highlight-title" data-es="Entrenador" data-en="Coach">Entrenador</div>
-        <div class="modal-highlight-text es-content" data-lang="es">He entrenado a equipos de distintas categorías en fútbol base, con resultados destacados en competiciones regionales — entre ellos, campeón Sub-12. Titulado UEFA B.</div>
-        <div class="modal-highlight-text en-content" style="display:none" data-lang="en">I've coached teams across different youth categories, with notable results in regional competitions — including a Sub-12 championship title. UEFA B certified.</div>
+        <ul class="modal-bullets es-content" data-lang="es">
+          <li>Formación de jugadores en distintas categorías de fútbol base.</li>
+          <li>Equipos con alto rendimiento competitivo a nivel regional.</li>
+          <li>Metodologías orientadas a la mejora técnica, táctica y toma de decisiones.</li>
+          <li>Campeón regional Sub-12.</li>
+        </ul>
+        <ul class="modal-bullets en-content" style="display:none" data-lang="en">
+          <li>Player development across multiple youth football categories.</li>
+          <li>High-performance results at regional competitive level.</li>
+          <li>Methodologies focused on technical, tactical and decision-making improvement.</li>
+          <li>Regional Sub-12 champion.</li>
+        </ul>
       </div>
+
       <div class="modal-highlight">
-        <div class="modal-highlight-title" data-es="Coordinador" data-en="Coordinator">Coordinador</div>
-        <div class="modal-highlight-text es-content" data-lang="es">Gestión de grupos, coordinación del cuerpo técnico y planificación de la temporada. Asegurando coherencia en la metodología de juego en todas las categorías del club.</div>
-        <div class="modal-highlight-text en-content" style="display:none" data-lang="en">Team management, technical staff coordination and season planning. Ensuring consistency in playing methodology across all club categories.</div>
+        <div class="modal-highlight-title" data-es="Entrenador &amp; Coordinador" data-en="Coach &amp; Coordinator">Entrenador &amp; Coordinador</div>
+        <ul class="modal-bullets es-content" data-lang="es">
+          <li>Diseño y planificación de sesiones adaptadas a cada etapa formativa.</li>
+          <li>Metodología de juego común para todas las categorías del club.</li>
+          <li>Coordinación del cuerpo técnico y seguimiento de entrenadores.</li>
+          <li>Planificación de temporadas: objetivos, contenidos y evolución del jugador.</li>
+          <li>Organización de campus de tecnificación con captación de talento regional.</li>
+        </ul>
+        <ul class="modal-bullets en-content" style="display:none" data-lang="en">
+          <li>Design and planning of training sessions tailored to each developmental stage.</li>
+          <li>Common playing methodology across all club categories.</li>
+          <li>Coaching staff coordination and monitoring.</li>
+          <li>Season planning: objectives, content and player progression.</li>
+          <li>Organisation of technology camps with regional talent identification.</li>
+        </ul>
       </div>
+
       <div class="modal-highlight">
-        <div class="modal-highlight-title" data-es="Dirección deportiva" data-en="Sporting management">Dirección deportiva</div>
-        <div class="modal-highlight-text es-content" data-lang="es">Participación en las decisiones estratégicas del club: fichajes, estructura de equipos, relación con familias y representación institucional.</div>
-        <div class="modal-highlight-text en-content" style="display:none" data-lang="en">Participation in the club's strategic decisions: signings, team structure, family relations and institutional representation.</div>
+        <div class="modal-highlight-title" data-es="Dirección Deportiva · Scouting &amp; Datos" data-en="Sporting Management · Scouting &amp; Data">Dirección Deportiva · Scouting &amp; Datos</div>
+        <ul class="modal-bullets es-content" data-lang="es">
+          <li>Planificación deportiva: confección de plantillas y estructura de equipos.</li>
+          <li>Gestión de captación y relación con jugadores, familias y entorno competitivo.</li>
+          <li>Scouting en competición y elaboración de informes de rendimiento.</li>
+          <li>Implementación de herramientas de análisis de datos en fútbol base.</li>
+          <li>Integración de tecnología y metodología analítica desde Voon Sports.</li>
+        </ul>
+        <ul class="modal-bullets en-content" style="display:none" data-lang="en">
+          <li>Sporting planning: squad building and team structure.</li>
+          <li>Recruitment management and relations with players, families and competitive environment.</li>
+          <li>Live scouting and performance report production.</li>
+          <li>Implementation of data analysis tools in youth football.</li>
+          <li>Integration of technology and analytical methodology from Voon Sports.</li>
+        </ul>
       </div>
+
     </div>
   </div>
   <div class="modal-tags"><span class="tag">UEFA B</span><span class="tag" data-es="Fútbol Base" data-en="Youth Football">Fútbol Base</span><span class="tag" data-es="Coordinación" data-en="Coordination">Coordinación</span><span class="tag" data-es="Liderazgo" data-en="Leadership">Liderazgo</span></div>
@@ -537,14 +599,14 @@
     <div class="project-card reveal reveal-delay-1" onclick="openModal('voon')" style="cursor:pointer">
       <div class="project-logo-wrap" style="height:48px;display:flex;align-items:center;margin-bottom:18px"><img src="images/1774297481210_logo-voon-white.jpeg" alt="Voon Sports" style="max-height:36px;max-width:140px;object-fit:contain;mix-blend-mode:screen;padding:4px"></div>
       <div class="project-title">Voon Sports</div>
-      <div class="project-desc" data-es="Productos tecnológicos para el entrenamiento deportivo profesional. De fútbol al pádel, tenis y fitness. Case study oficial con la Real Sociedad." data-en="Tech products for professional sports training. From football to padel, tennis and fitness. Official case study with Real Sociedad.">Productos tecnológicos para el entrenamiento deportivo profesional. De fútbol al pádel, tenis y fitness. Case study oficial con la Real Sociedad.</div>
+      <div class="project-desc" data-es="Tecnología aplicada al entrenamiento deportivo, desde el primer prototipo hasta el producto final." data-en="Technology applied to sports training, from first prototype to final product.">Tecnología aplicada al entrenamiento deportivo, desde el primer prototipo hasta el producto final.</div>
       <div class="project-tags"><span class="tag">CTO</span><span class="tag">Hardware</span><span class="tag">Python</span><span class="tag">PLC</span><span class="tag">Power BI</span></div>
       <div class="project-more" data-es="Ver más →" data-en="See more →">Ver más →</div>
     </div>
     <div class="project-card reveal reveal-delay-2" onclick="openModal('sunion')" style="cursor:pointer">
       <div class="project-logo-wrap" style="height:48px;display:flex;align-items:center;margin-bottom:18px"><img src="images/1774297481210_logo-sunion.jpeg" alt="Sunion" style="max-height:36px;max-width:120px;object-fit:contain;"></div>
       <div class="project-title">Sunion</div>
-      <div class="project-desc" data-es="Cofundador de startup de soluciones fotovoltaicas. Estudios de viabilidad, dimensionamiento técnico y gestión de subvenciones para particulares y empresas." data-en="Co-founder of a photovoltaic solutions startup. Feasibility studies, technical sizing and grant management for households and businesses.">Cofundador de startup de soluciones fotovoltaicas. Estudios de viabilidad, dimensionamiento técnico y gestión de subvenciones para particulares y empresas.</div>
+      <div class="project-desc" data-es="Proyecto emprendedor en energía solar: viabilidad técnica, dimensionamiento y gestión de subvenciones para particulares y empresas." data-en="Entrepreneurial project in solar energy: technical feasibility, sizing and grant management for households and businesses.">Proyecto emprendedor en energía solar: viabilidad técnica, dimensionamiento y gestión de subvenciones para particulares y empresas.</div>
       <div class="project-tags"><span class="tag" data-es="Emprendimiento" data-en="Entrepreneurship">Emprendimiento</span><span class="tag" data-es="Energía Solar" data-en="Solar Energy">Energía Solar</span><span class="tag" data-es="Ingeniería" data-en="Engineering">Ingeniería</span></div>
       <div class="project-more" data-es="Ver más →" data-en="See more →">Ver más →</div>
     </div>
@@ -557,14 +619,14 @@
         </div>
       </div>
       <div class="project-title">Club Deportivo Vasconia</div>
-      <div class="project-desc" data-es="10 años como entrenador, coordinador y parte de la dirección deportiva del club. Campeón regional Sub-12. Titulado UEFA B." data-en="10 years as coach, coordinator and part of the club's sporting management. Regional Sub-12 champion. UEFA B certified.">10 años como entrenador, coordinador y parte de la dirección deportiva del club. Campeón regional Sub-12. Titulado UEFA B.</div>
-      <div class="project-tags"><span class="tag">UEFA B</span><span class="tag" data-es="Fútbol Base" data-en="Youth Football">Fútbol Base</span><span class="tag" data-es="Liderazgo" data-en="Leadership">Liderazgo</span></div>
+      <div class="project-desc" data-es="Más de 10 años en fútbol base: entrenamiento, coordinación de equipos y apoyo en la dirección deportiva del club." data-en="Over 10 years in youth football: coaching, team coordination and support in the club's sporting management.">Más de 10 años en fútbol base: entrenamiento, coordinación de equipos y apoyo en la dirección deportiva del club.</div>
+      <div class="project-tags"><span class="tag">UEFA B</span><span class="tag" data-es="Fútbol Base" data-en="Youth Football">Fútbol Base</span><span class="tag">Scouting</span><span class="tag" data-es="Digitalización" data-en="Digitalisation">Digitalización</span><span class="tag" data-es="Liderazgo" data-en="Leadership">Liderazgo</span></div>
       <div class="project-more" data-es="Ver más →" data-en="See more →">Ver más →</div>
     </div>
     <div class="project-card reveal reveal-delay-4" style="opacity:.75">
       <span class="project-icon" style="font-size:1.4rem">🌍</span>
       <div class="project-title" style="font-size:.9rem" data-es="Voluntariado · Nepal &amp; Jordania" data-en="Volunteering · Nepal &amp; Jordan">Voluntariado · Nepal &amp; Jordania</div>
-      <div class="project-desc" style="font-size:.82rem" data-es="Colaboración con comunidades locales en iniciativas de desarrollo." data-en="Collaboration with local communities on development initiatives.">Colaboración con comunidades locales en iniciativas de desarrollo.</div>
+      <div class="project-desc" style="font-size:.82rem" data-es="Experiencias de voluntariado en Nepal y Jordania, colaborando con comunidades locales." data-en="Volunteering experiences in Nepal and Jordan, collaborating with local communities.">Experiencias de voluntariado en Nepal y Jordania, colaborando con comunidades locales.</div>
       <div class="project-tags"><span class="tag">Nepal</span><span class="tag" data-es="Jordania" data-en="Jordan">Jordania</span></div>
     </div>
   </div>
@@ -573,7 +635,7 @@
 <!-- HABILIDADES -->
 <section id="habilidades">
   <div class="section-label reveal" data-es="HABILIDADES" data-en="SKILLS">HABILIDADES</div>
-  <h2 class="section-title reveal" data-es="Skills &amp; Herramientas" data-en="Skills &amp; Tools">Skills &amp; Herramientas</h2>
+  <h2 class="section-title reveal" data-es="Herramientas &amp; Áreas" data-en="Tools &amp; Areas">Herramientas &amp; Áreas</h2>
   <p class="section-sub reveal" data-es="Tecnologías, plataformas e idiomas con los que trabajo." data-en="Technologies, platforms and languages I work with.">Tecnologías, plataformas e idiomas con los que trabajo.</p>
   <div class="skills-new-grid">
 
@@ -682,32 +744,13 @@
 <!-- CONTACTO -->
 <section id="contacto">
   <div class="section-label reveal" data-es="CONTACTO" data-en="CONTACT">CONTACTO</div>
-  <h2 class="section-title reveal" data-es="Hablemos" data-en="Let's talk">Hablemos</h2>
-  <div class="contact-grid">
-    <div>
-      <p class="contact-lead reveal" data-es="Si tienes un proyecto interesante, una oportunidad de colaboración o simplemente quieres conectar, no dudes en escribirme." data-en="If you have an interesting project, a collaboration opportunity or simply want to connect, feel free to reach out.">Si tienes un proyecto interesante, una oportunidad de colaboración o simplemente quieres conectar, no dudes en escribirme.</p>
-      <div class="contact-items reveal">
-        <div class="contact-item"><div class="contact-icon">✉️</div><a href="mailto:jongarciaecheverria@gmail.com">jongarciaecheverria@gmail.com</a></div>
-        <div class="contact-item"><div class="contact-icon">📍</div><span data-es="Donostia – San Sebastián" data-en="Donostia – San Sebastián">Donostia – San Sebastián</span></div>
-        <div class="contact-item"><div class="contact-icon">📱</div><a href="tel:+34636063297">+34 636 063 297</a></div>
-        <div class="contact-item"><div class="contact-icon">💼</div><a href="https://www.linkedin.com/in/jon-garcia-echeverria-257634b2" target="_blank">LinkedIn</a></div>
-      </div>
-      <div class="contact-socials reveal">
-        <a href="https://www.linkedin.com/in/jon-garcia-echeverria-257634b2" target="_blank" class="social-btn">💼</a>
-        <a href="https://instagram.com/jongarcia94" target="_blank" class="social-btn">📸</a>
-        <a href="mailto:jongarciaecheverria@gmail.com" class="social-btn">✉️</a>
-      </div>
-    </div>
-    <div class="reveal">
-      <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="display:flex;flex-direction:column;gap:16px">
-        <input type="hidden" name="form-name" value="contacto"/>
-        <p style="display:none"><input name="bot-field"/></p>
-        <div class="form-field"><label class="form-label" data-es="Nombre" data-en="Name">Nombre</label><input type="text" name="nombre" class="form-input" required/></div>
-        <div class="form-field"><label class="form-label">Email</label><input type="email" name="email" class="form-input" required/></div>
-        <div class="form-field"><label class="form-label" data-es="Mensaje" data-en="Message">Mensaje</label><textarea name="mensaje" class="form-textarea"></textarea></div>
-        <button class="btn-primary" type="submit" data-es="Enviar mensaje" data-en="Send message">Enviar mensaje</button>
-      </form>
-    </div>
+  <h2 class="section-title reveal" data-es="Contacto" data-en="Contact">Contacto</h2>
+  <p class="contact-lead reveal" style="max-width:480px;margin-bottom:2.5rem" data-es="Si te apetece escribir o simplemente conectar, puedes hacerlo aquí." data-en="If you fancy writing or simply connecting, you can do it here.">Si te apetece escribir o simplemente conectar, puedes hacerlo aquí.</p>
+  <div class="contact-items reveal" style="gap:16px">
+    <div class="contact-item"><div class="contact-icon">✉️</div><a href="mailto:jongarciaecheverria@gmail.com">jongarciaecheverria@gmail.com</a></div>
+    <div class="contact-item"><div class="contact-icon">📱</div><a href="tel:+34636063297">+34 636 063 297</a></div>
+    <div class="contact-item"><div class="contact-icon">📍</div><span data-es="Donostia – San Sebastián" data-en="Donostia – San Sebastián">Donostia – San Sebastián</span></div>
+    <div class="contact-item"><div class="contact-icon">💼</div><a href="https://www.linkedin.com/in/jon-garcia-echeverria-257634b2" target="_blank">LinkedIn</a></div>
   </div>
 </section>
 
