@@ -143,7 +143,7 @@
     .edu-school { font-size:.83rem; color:var(--muted); }
 
     /* PROJECTS */
-    .projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:6px; overflow:hidden; }
+    .projects-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:6px; overflow:hidden; }
     .project-card { background:var(--card); padding:28px; transition:background .2s; position:relative; cursor:pointer; }
     .project-card:hover { background:var(--bg); }
     .project-logo-wrap { height:40px; display:flex; align-items:center; margin-bottom:16px; }
@@ -155,7 +155,7 @@
     .project-more { font-size:.78rem; color:var(--accent); margin-top:14px; }
 
     /* SKILLS REDESIGN */
-    .skills-new-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:6px; overflow:hidden; }
+    .skills-new-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:6px; overflow:hidden; }
     .skill-block { background:var(--card); padding:24px; transition:background .2s; }
     .skill-block:hover { background:var(--bg); }
     .skill-block-header { display:flex; align-items:center; gap:12px; margin-bottom:1rem; padding-bottom:.75rem; border-bottom:1px solid var(--border); }
@@ -248,7 +248,7 @@
   <a href="#inicio" class="nav-logo">Jon<em>.</em></a>
   <ul class="nav-center">
     <li><a href="#sobre-mi"    data-es="Sobre mí"    data-en="About">Sobre mí</a></li>
-    <li><a href="#experiencia" data-es="Experiencia" data-en="Experience">Experiencia</a></li>
+    <li><a href="#experiencia" data-es="Recorrido" data-en="Journey">Recorrido</a></li>
     <li><a href="#proyectos"   data-es="Proyectos"   data-en="Projects">Proyectos</a></li>
     <li><a href="#habilidades" data-es="Habilidades" data-en="Skills">Habilidades</a></li>
     <li><a href="#galeria"     data-es="Galería"     data-en="Gallery">Galería</a></li>
@@ -585,7 +585,7 @@
       <div class="project-tags"><span class="tag">UEFA B</span><span class="tag" data-es="Fútbol Base" data-en="Youth Football">Fútbol Base</span><span class="tag">Scouting</span><span class="tag" data-es="Digitalización" data-en="Digitalisation">Digitalización</span><span class="tag" data-es="Liderazgo" data-en="Leadership">Liderazgo</span></div>
       <div class="project-more" data-es="Ver más →" data-en="See more →">Ver más →</div>
     </div>
-    <div class="project-card reveal reveal-delay-4" style="opacity:.75">
+    <div class="project-card reveal reveal-delay-4" style="opacity:.75;grid-column:1/-1;">
       <span class="project-icon" style="font-size:1.4rem">🌍</span>
       <div class="project-title" style="font-size:.9rem" data-es="Voluntariado · Nepal &amp; Jordania" data-en="Volunteering · Nepal &amp; Jordan">Voluntariado · Nepal &amp; Jordania</div>
       <div class="project-desc" style="font-size:.82rem" data-es="Experiencias de voluntariado en Nepal y Jordania, colaborando con comunidades locales." data-en="Volunteering experiences in Nepal and Jordan, collaborating with local communities.">Experiencias de voluntariado en Nepal y Jordania, colaborando con comunidades locales.</div>
@@ -596,7 +596,7 @@
 
 <!-- HABILIDADES -->
 <section id="habilidades">
-  <div class="section-label reveal" data-es="HABILIDADES" data-en="SKILLS">HABILIDADES</div>
+  <div class="section-label reveal" data-es="HERRAMIENTAS" data-en="TOOLS">HERRAMIENTAS</div>
   <h2 class="section-title reveal" data-es="Herramientas &amp; Áreas" data-en="Tools &amp; Areas">Herramientas &amp; Áreas</h2>
   <p class="section-sub reveal" data-es="Tecnologías, plataformas e idiomas con los que trabajo." data-en="Technologies, platforms and languages I work with.">Tecnologías, plataformas e idiomas con los que trabajo.</p>
   <div class="skills-new-grid">
@@ -666,7 +666,7 @@
       </div>
     </div>
 
-    <div class="skill-block reveal reveal-delay-2">
+    <div class="skill-block reveal reveal-delay-2" style="grid-column:span 2">
       <div class="skill-block-header">
         <div class="skill-block-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
         <div class="skill-block-title" data-es="Intereses" data-en="Interests">Intereses</div>
