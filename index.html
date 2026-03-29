@@ -238,6 +238,11 @@
     @media (max-width:700px) {
       .about-grid { grid-template-columns:1fr; }
       .about-photo { max-width:200px; aspect-ratio:1; }
+      .projects-grid { grid-template-columns:1fr; }
+      .projects-grid .project-card[style*="grid-column"] { grid-column:1; }
+      .skills-new-grid { grid-template-columns:1fr; }
+      .skills-new-grid .skill-block[style*="grid-column"] { grid-column:1; }
+      .edu-grid { grid-template-columns:1fr; }
     }
     @media (prefers-reduced-motion:reduce) { .reveal { opacity:1; transform:none; transition:none; } }
   </style>
