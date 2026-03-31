@@ -57,6 +57,7 @@
     .cv-btn { font-size:.75rem; font-weight:500; color:var(--accent); text-decoration:none; border:1px solid var(--accent); padding:5px 14px; border-radius:4px; transition:all .2s; white-space:nowrap; }
     .cv-btn:hover { background:var(--accent); color:#fff; }
     @media(max-width:900px) { .cv-btn { display:none; } }
+    .mobile-menu .cv-btn { display:inline-block !important; font-size:.85rem; color:var(--accent); border-color:var(--accent); }
 
     /* Lang toggle */
     .lang-toggle { display:flex; align-items:center; border:1px solid var(--border); border-radius:4px; overflow:hidden; }
@@ -76,6 +77,7 @@
     .mobile-menu.open { opacity:1; pointer-events:all; }
     .mobile-menu a { font-size:clamp(1.4rem,5vw,2rem); font-weight:300; color:var(--text); text-decoration:none; transition:color .2s; }
     .mobile-menu a:hover { color:var(--accent); }
+    .mobile-menu .cv-btn { font-size:.9rem !important; color:var(--accent) !important; border:1px solid var(--accent) !important; padding:8px 20px !important; }
 
     /* Scroll reveal */
     .reveal { opacity:0; transform:translateY(16px); transition:opacity .6s var(--ease), transform .6s var(--ease); }
@@ -233,7 +235,7 @@
       .nav-center { display:none; }
       .hamburger { display:flex; }
       .mobile-menu { display:flex; }
-      .mobile-menu .cv-btn { display:inline-block; font-size:.85rem; margin-top:.5rem; }
+      @media(max-width:900px) { .mobile-menu .cv-btn { display:inline-block; font-size:.85rem; margin-top:.5rem; } }
     }
     @media (max-width:700px) {
       .about-grid { grid-template-columns:1fr; }
@@ -287,6 +289,7 @@
 </div>
 
 <!-- HERO -->
+<div style="background:var(--bg);">
 <section class="hero" id="inicio">
   <div>
     <div class="hero-eyebrow reveal">CTO &amp; Product Strategy Leader</div>
@@ -309,6 +312,7 @@
     </div>
   </div>
 </section>
+</div>
 
 <!-- SOBRE MÍ -->
 <section id="sobre-mi">
@@ -328,7 +332,7 @@
         <a href="https://www.linkedin.com/in/jon-garcia-echeverria-257634b2" target="_blank" class="about-link">💼 LinkedIn</a>
         <a href="https://instagram.com/jongarcia94" target="_blank" class="about-link">📸 @jongarcia94</a>
         
-        <a href="/cdn-cgi/l/email-protection#bed4d1d0d9dfccddd7dfdbddd6dbc8dbccccd7dffed9d3dfd7d290ddd1d3" class="about-link">✉️ Email</a>
+        <a href="/cdn-cgi/l/email-protection#355f5a5b525447565c5450565d50435047475c54755258545c591b565a58" class="about-link">✉️ Email</a>
       </div>
     </div>
   </div>
@@ -714,7 +718,7 @@
   <h2 class="section-title reveal" data-es="Contacto" data-en="Contact">Contacto</h2>
   <p class="contact-lead reveal" style="max-width:480px;margin-bottom:2.5rem" data-es="Si te apetece escribir o simplemente conectar, puedes hacerlo aquí." data-en="If you fancy writing or simply connecting, you can do it here.">Si te apetece escribir o simplemente conectar, puedes hacerlo aquí.</p>
   <div class="contact-items reveal" style="gap:16px">
-    <div class="contact-item"><div class="contact-icon">✉️</div><a href="/cdn-cgi/l/email-protection#345e5b5a535546575d5551575c51425146465d55745359555d581a575b59"><span class="__cf_email__" data-cfemail="e58f8a8b828497868c8480868d80938097978c84a58288848c89cb868a88">[email&#160;protected]</span></a></div>
+    <div class="contact-item"><div class="contact-icon">✉️</div><a href="/cdn-cgi/l/email-protection#7f151011181e0d1c161e1a1c171a091a0d0d161e3f18121e1613511c1012"><span class="__cf_email__" data-cfemail="086267666f697a6b61696d6b606d7e6d7a7a6169486f65696164266b6765">[email&#160;protected]</span></a></div>
     <div class="contact-item"><div class="contact-icon">📱</div><a href="tel:+34636063297">+34 636 063 297</a></div>
     <div class="contact-item"><div class="contact-icon">📍</div><span data-es="Donostia – San Sebastián" data-en="Donostia – San Sebastián">Donostia – San Sebastián</span></div>
     <div class="contact-item"><div class="contact-icon">💼</div><a href="https://www.linkedin.com/in/jon-garcia-echeverria-257634b2" target="_blank">LinkedIn</a></div>
@@ -773,4 +777,13 @@
   document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
 
   /* SCROLL REVEAL */
-  var obs = new IntersectionObserver(functio
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold:0.1 });
+  document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+
+</script>
+</body>
+</html>
