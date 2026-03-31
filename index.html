@@ -233,7 +233,7 @@
       .nav-center { display:none; }
       .hamburger { display:flex; }
       .mobile-menu { display:flex; }
-      @media(max-width:900px) { .mobile-menu .cv-btn { display:inline-block; font-size:.85rem; margin-top:.5rem; } }
+      .mobile-menu .cv-btn { display:inline-block; font-size:.85rem; margin-top:.5rem; }
     }
     @media (max-width:700px) {
       .about-grid { grid-template-columns:1fr; }
@@ -290,7 +290,7 @@
 <section class="hero" id="inicio">
   <div>
     <div class="hero-eyebrow reveal">CTO &amp; Product Strategy Leader</div>
-    <h1 class="reveal reveal-delay-1">Hola, soy<br/><em>Jon García</em><br/>Echeverría</h1>
+    <h1 class="reveal reveal-delay-1"><span data-es="Hola, soy" data-en="Hi, I'm">Hola, soy</span><br/><em>Jon García</em><br/>Echeverría</h1>
     <p class="hero-desc reveal reveal-delay-2"
        data-es="Ingeniero industrial especializado en desarrollo de producto, estrategia tecnológica e innovación aplicada al deporte."
        data-en="Industrial engineer specialized in product development, technology strategy and innovation applied to sports.">
@@ -328,7 +328,7 @@
         <a href="https://www.linkedin.com/in/jon-garcia-echeverria-257634b2" target="_blank" class="about-link">💼 LinkedIn</a>
         <a href="https://instagram.com/jongarcia94" target="_blank" class="about-link">📸 @jongarcia94</a>
         
-        <a href="mailto:jongarciaecheverria@gmail.com" class="about-link">✉️ Email</a>
+        <a href="/cdn-cgi/l/email-protection#bed4d1d0d9dfccddd7dfdbddd6dbc8dbccccd7dffed9d3dfd7d290ddd1d3" class="about-link">✉️ Email</a>
       </div>
     </div>
   </div>
@@ -714,7 +714,7 @@
   <h2 class="section-title reveal" data-es="Contacto" data-en="Contact">Contacto</h2>
   <p class="contact-lead reveal" style="max-width:480px;margin-bottom:2.5rem" data-es="Si te apetece escribir o simplemente conectar, puedes hacerlo aquí." data-en="If you fancy writing or simply connecting, you can do it here.">Si te apetece escribir o simplemente conectar, puedes hacerlo aquí.</p>
   <div class="contact-items reveal" style="gap:16px">
-    <div class="contact-item"><div class="contact-icon">✉️</div><a href="mailto:jongarciaecheverria@gmail.com">jongarciaecheverria@gmail.com</a></div>
+    <div class="contact-item"><div class="contact-icon">✉️</div><a href="/cdn-cgi/l/email-protection#345e5b5a535546575d5551575c51425146465d55745359555d581a575b59"><span class="__cf_email__" data-cfemail="e58f8a8b828497868c8480868d80938097978c84a58288848c89cb868a88">[email&#160;protected]</span></a></div>
     <div class="contact-item"><div class="contact-icon">📱</div><a href="tel:+34636063297">+34 636 063 297</a></div>
     <div class="contact-item"><div class="contact-icon">📍</div><span data-es="Donostia – San Sebastián" data-en="Donostia – San Sebastián">Donostia – San Sebastián</span></div>
     <div class="contact-item"><div class="contact-icon">💼</div><a href="https://www.linkedin.com/in/jon-garcia-echeverria-257634b2" target="_blank">LinkedIn</a></div>
@@ -726,7 +726,7 @@
   <div class="footer-text" data-es="Hecho con dedicación" data-en="Made with dedication">Hecho con dedicación</div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /* LANGUAGE */
   function setLang(lang) {
     document.querySelectorAll('.lang-btn').forEach(function(b) {
@@ -773,12 +773,4 @@
   document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
 
   /* SCROLL REVEAL */
-  var obs = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
-</script>
-</body>
-</html>
+  var obs = new IntersectionObserver(functio
