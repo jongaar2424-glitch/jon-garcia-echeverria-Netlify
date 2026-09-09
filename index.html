@@ -99,7 +99,7 @@
 
     /* LAYOUT */
     .container { max-width:var(--max-w); margin:0 auto; padding:0 clamp(1.25rem,5vw,3rem); }
-    section { padding:clamp(4rem,8vw,7rem) clamp(1.25rem,5vw,3rem); max-width:var(--max-w); margin:0 auto; }
+    section { padding:clamp(2.75rem,5.5vw,4.5rem) clamp(1.25rem,5vw,3rem); max-width:var(--max-w); margin:0 auto; }
     section:nth-child(even) { background:transparent; }
 
     .section-label { font-size:.68rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:12px; }
@@ -830,12 +830,19 @@
 
   /* NAV SCROLL — switches from dark-over-hero to light once the hero is past */
   var heroDarkEl = document.querySelector('.hero-dark');
-  function updateNavState() {
-    var threshold = heroDarkEl ? heroDarkEl.offsetHeight - 60 : 20;
-    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > threshold);
+  var navbarEl = document.getElementById('navbar');
+  if (heroDarkEl && navbarEl && 'IntersectionObserver' in window) {
+    var navObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        navbarEl.classList.toggle('scrolled', entry.intersectionRatio < 0.2);
+      });
+    }, { threshold: [0, 0.2, 0.5, 1] });
+    navObserver.observe(heroDarkEl);
+  } else if (navbarEl) {
+    window.addEventListener('scroll', function () {
+      navbarEl.classList.toggle('scrolled', window.scrollY > 400);
+    });
   }
-  window.addEventListener('scroll', updateNavState);
-  updateNavState();
 
   /* HERO — live data network */
   (function () {
