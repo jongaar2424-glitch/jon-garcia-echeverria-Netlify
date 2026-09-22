@@ -14,8 +14,8 @@
       --card:     #FFFFFF;
       --border:   #EAEAEA;
       --border-h: #D0D0D0;
-      --accent:   #4A7C72;
-      --accent-dim: rgba(74,124,114,0.08);
+      --accent:   #107F61;
+      --accent-dim: rgba(16,127,97,0.08);
       --text:     #1A1A1A;
       --muted:    #6B6B6B;
       --muted2:   #AAAAAA;
@@ -103,7 +103,7 @@
     section:nth-child(even) { background:transparent; }
 
     .section-label { font-size:.68rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:12px; }
-    .section-title { font-family:'Bricolage Grotesque', sans-serif; font-size:clamp(1.8rem,4vw,2.6rem); font-weight:500; color:var(--text); letter-spacing:-.02em; line-height:1.2; margin-bottom:12px; position:relative; padding-bottom:16px; }
+    .section-title { font-family:'Bricolage Grotesque', sans-serif; font-size:clamp(1.8rem,4vw,2.6rem); font-weight:600; color:var(--text); letter-spacing:-.02em; line-height:1.2; margin-bottom:12px; position:relative; padding-bottom:16px; }
     .section-title::after { content:''; position:absolute; left:0; bottom:0; width:36px; height:2px; background:var(--accent); }
     .section-sub { font-size:.95rem; color:var(--muted); max-width:480px; margin-bottom:28px; }
 
@@ -236,7 +236,7 @@
     .skill-block-title { font-size:.68rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
     .skill-tags { display:flex; flex-wrap:wrap; gap:6px; }
     .skill-tag { font-size:.78rem; color:var(--muted); background:var(--bg); border:1px solid var(--border); padding:4px 10px; border-radius:3px; }
-    .skill-tag.highlight { color:var(--accent); border-color:rgba(74,124,114,.2); background:var(--accent-dim); }
+    .skill-tag.highlight { color:var(--accent); border-color:rgba(16,127,97,.2); background:var(--accent-dim); }
     .lang-item { display:flex; align-items:center; justify-content:space-between; padding:5px 0; }
     .lang-name { font-size:.88rem; color:var(--text); }
     .lang-level { font-size:.72rem; color:var(--accent); }
@@ -282,13 +282,13 @@
     .modal-bullets { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:6px; }
     .modal-bullets li { font-size:.87rem; color:var(--muted); line-height:1.6; display:flex; align-items:flex-start; gap:8px; }
     .modal-bullets li::before { content:'—'; color:var(--accent); flex-shrink:0; font-size:.78rem; margin-top:2px; }
-    .modal-badge { display:inline-block; background:var(--accent-dim); color:var(--accent); border:1px solid rgba(74,124,114,.2); font-size:.7rem; padding:2px 7px; border-radius:3px; font-weight:500; }
+    .modal-badge { display:inline-block; background:var(--accent-dim); color:var(--accent); border:1px solid rgba(16,127,97,.2); font-size:.7rem; padding:2px 7px; border-radius:3px; font-weight:500; }
     .modal-section { margin-bottom:1.25rem; }
     .modal-section-title { font-size:.68rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; padding-bottom:5px; border-bottom:1px solid var(--border); }
     .modal-tags { display:flex; flex-wrap:wrap; gap:6px; padding-top:1rem; border-top:1px solid var(--border); }
 
     /* COACHING */
-    .coaching-profile { background:var(--accent-dim); border:1px solid rgba(74,124,114,.15); border-left:2px solid var(--accent); border-radius:0 4px 4px 0; padding:12px 16px; margin-top:12px; display:flex; flex-direction:column; gap:8px; }
+    .coaching-profile { background:var(--accent-dim); border:1px solid rgba(16,127,97,.15); border-left:2px solid var(--accent); border-radius:0 4px 4px 0; padding:12px 16px; margin-top:12px; display:flex; flex-direction:column; gap:8px; }
     .coaching-profile-item { display:flex; align-items:flex-start; gap:8px; }
     .coaching-profile-icon { color:var(--accent); font-size:.7rem; margin-top:4px; flex-shrink:0; }
     .coaching-profile-text { font-size:.83rem; color:var(--text); line-height:1.6; }
