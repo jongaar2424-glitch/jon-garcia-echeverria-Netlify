@@ -244,14 +244,12 @@
     .lang-bar-fill { height:100%; background:var(--accent); }
 
     /* GALLERY */
-    .gallery-collage { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
-    .gallery-img { width:100%; height:100%; object-fit:cover; display:block; }
-    .gallery-item { border-radius:4px; overflow:hidden; position:relative; cursor:pointer; transition:opacity .2s; aspect-ratio:1; }
-    .gallery-item.tall { aspect-ratio:3/4; }
+    .gallery-collage { columns:3; column-gap:8px; }
+    .gallery-img { width:100%; height:auto; object-fit:cover; display:block; }
+    .gallery-item { break-inside:avoid; margin-bottom:8px; border-radius:4px; overflow:hidden; position:relative; cursor:pointer; transition:opacity .2s; }
     .gallery-item:hover { opacity:.92; }
     @media(max-width:700px) {
-      .gallery-collage { grid-template-columns:repeat(2,1fr); }
-      .gallery-item, .gallery-item.tall { aspect-ratio:1; }
+      .gallery-collage { columns:2; }
     }
 
     /* CONTACT */
@@ -415,7 +413,7 @@
         <a href="https://www.linkedin.com/in/jon-garcia-echeverria-257634b2" target="_blank" class="about-link">💼 LinkedIn</a>
         <a href="https://instagram.com/jongarcia94" target="_blank" class="about-link">📸 @jongarcia94</a>
         
-        <a href="/cdn-cgi/l/email-protection#355f5a5b525447565c5450565d50435047475c54755258545c591b565a58" class="about-link">✉️ Email</a>
+        <a href="mailto:jongarciaecheverria@gmail.com" class="about-link">✉️ Email</a>
       </div>
     </div>
   </div>
@@ -783,15 +781,15 @@
   <h2 class="section-title reveal" data-es="Momentos" data-en="Moments">Momentos</h2>
 
   <div class="gallery-collage">
-    <div class="gallery-item reveal reveal-delay-1"><img src="images/galeria-jordania.jpeg" alt="Jordania" class="gallery-img" style="object-position:center 40%;"></div>
-    <div class="gallery-item tall reveal reveal-delay-2"><img src="images/galeria-desierto.jpeg" alt="Wadi Rum" class="gallery-img"></div>
-    <div class="gallery-item reveal reveal-delay-3"><img src="images/galeria-safari.jpeg" alt="Tanzania" class="gallery-img" style="object-position:20% center;"></div>
-    <div class="gallery-item tall reveal reveal-delay-1"><img src="images/galeria-trekking.jpeg" alt="Nepal MTB" class="gallery-img" style="object-position:center 60%;"></div>
+    <div class="gallery-item reveal reveal-delay-1"><img src="images/galeria-jordania.jpeg" alt="Jordania" class="gallery-img"></div>
+    <div class="gallery-item reveal reveal-delay-2"><img src="images/galeria-desierto.jpeg" alt="Wadi Rum" class="gallery-img"></div>
+    <div class="gallery-item reveal reveal-delay-3"><img src="images/galeria-safari.jpeg" alt="Tanzania" class="gallery-img"></div>
+    <div class="gallery-item reveal reveal-delay-1"><img src="images/galeria-trekking.jpeg" alt="Nepal MTB" class="gallery-img"></div>
     <div class="gallery-item reveal reveal-delay-2"><img src="images/galeria-esquiar.jpeg" alt="Esqui" class="gallery-img"></div>
     <div class="gallery-item reveal reveal-delay-3"><img src="images/galeria-voon2.jpeg" alt="Voon Sports" class="gallery-img"></div>
-    <div class="gallery-item reveal reveal-delay-1"><img src="images/galeria-voon3.jpeg" alt="Real Sociedad" class="gallery-img" style="object-position:15% center;filter:brightness(1.3);"></div>
-    <div class="gallery-item reveal reveal-delay-2"><img src="images/galeria-trekking2.jpeg" alt="Torres del Paine" class="gallery-img" style="object-position:75% 65%;"></div>
-    <div class="gallery-item tall reveal reveal-delay-3"><img src="images/galeria-trekking1.jpeg" alt="Patagonia" class="gallery-img" style="object-position:center 70%;"></div>
+    <div class="gallery-item reveal reveal-delay-1"><img src="images/galeria-voon3.jpeg" alt="Real Sociedad" class="gallery-img" style="filter:brightness(1.3);"></div>
+    <div class="gallery-item reveal reveal-delay-2"><img src="images/galeria-trekking2.jpeg" alt="Torres del Paine" class="gallery-img"></div>
+    <div class="gallery-item reveal reveal-delay-3"><img src="images/galeria-trekking1.jpeg" alt="Patagonia" class="gallery-img"></div>
   </div>
 </section>
 
@@ -801,7 +799,7 @@
   <h2 class="section-title reveal" data-es="Contacto" data-en="Contact">Contacto</h2>
   <p class="contact-lead reveal" style="max-width:480px;margin-bottom:2.5rem" data-es="Si te apetece escribir o simplemente conectar, puedes hacerlo aquí." data-en="If you fancy writing or simply connecting, you can do it here.">Si te apetece escribir o simplemente conectar, puedes hacerlo aquí.</p>
   <div class="contact-items reveal" style="gap:16px">
-    <div class="contact-item"><div class="contact-icon">✉️</div><a href="/cdn-cgi/l/email-protection#7f151011181e0d1c161e1a1c171a091a0d0d161e3f18121e1613511c1012"><span class="__cf_email__" data-cfemail="086267666f697a6b61696d6b606d7e6d7a7a6169486f65696164266b6765">[email&#160;protected]</span></a></div>
+    <div class="contact-item"><div class="contact-icon">✉️</div><a href="mailto:jongarciaecheverria@gmail.com">jongarciaecheverria@gmail.com</a></div>
     <div class="contact-item"><div class="contact-icon">📱</div><a href="tel:+34636063297">+34 636 063 297</a></div>
     <div class="contact-item"><div class="contact-icon">📍</div><span data-es="Donostia – San Sebastián" data-en="Donostia – San Sebastián">Donostia – San Sebastián</span></div>
     <div class="contact-item"><div class="contact-icon">💼</div><a href="https://www.linkedin.com/in/jon-garcia-echeverria-257634b2" target="_blank">LinkedIn</a></div>
@@ -813,7 +811,7 @@
   <div class="footer-text" data-es="Hecho con dedicación" data-en="Made with dedication">Hecho con dedicación</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   /* LANGUAGE */
   function setLang(lang) {
     document.querySelectorAll('.lang-btn').forEach(function(b) {
