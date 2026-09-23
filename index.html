@@ -9,16 +9,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --bg:       #F8F8F8;
-      --bg2:      #FFFFFF;
-      --card:     #FFFFFF;
-      --border:   #EAEAEA;
-      --border-h: #D0D0D0;
-      --accent:   #107F61;
-      --accent-dim: rgba(16,127,97,0.08);
-      --text:     #1A1A1A;
-      --muted:    #6B6B6B;
-      --muted2:   #AAAAAA;
+      --bg:       #0B0E14;
+      --bg2:      #10141C;
+      --card:     #12161F;
+      --border:   #232A36;
+      --border-h: #333C4A;
+      --accent:   #39e2b0;
+      --accent-dim: rgba(57,226,176,0.1);
+      --text:     #EDEFF3;
+      --muted:    #9AA3B2;
+      --muted2:   #6B7280;
       --white:    #FFFFFF;
       --font-display: 'Inter', system-ui, sans-serif;
       --font-body: 'Inter', system-ui, sans-serif;
@@ -28,11 +28,11 @@
     }
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior: smooth; }
-    body { background:var(--bg) radial-gradient(rgba(16,127,97,.09) 1px, transparent 1px) 0 0/34px 34px; color:var(--text); font-family:var(--font-body); font-weight:400; line-height:1.75; overflow-x:hidden; font-size:16px; }
+    body { background:var(--bg) radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px) 0 0/34px 34px; color:var(--text); font-family:var(--font-body); font-weight:400; line-height:1.75; overflow-x:hidden; font-size:16px; }
     ::-webkit-scrollbar { width:3px; }
     ::-webkit-scrollbar-track { background:var(--bg); }
     ::-webkit-scrollbar-thumb { background:var(--border-h); border-radius:2px; }
-    ::selection { background:var(--accent); color:#fff; }
+    ::selection { background:var(--accent); color:var(--bg); }
 
     /* NAV */
     nav {
@@ -48,7 +48,7 @@
       --nav-muted: var(--hero-ink-dim, rgba(242,240,234,.6));
     }
     nav.scrolled {
-      background:rgba(248,248,248,0.92);
+      background:rgba(11,14,20,0.85);
       border-bottom-color:var(--border);
       --nav-text: var(--text);
       --nav-muted: var(--muted);
@@ -65,14 +65,14 @@
 
     /* CV button */
     .cv-btn { font-size:.75rem; font-weight:500; color:var(--accent); text-decoration:none; border:1px solid var(--accent); padding:5px 14px; border-radius:4px; transition:all .2s; white-space:nowrap; }
-    .cv-btn:hover { background:var(--accent); color:#fff; }
+    .cv-btn:hover { background:var(--accent); color:var(--bg); }
     @media(max-width:900px) { .cv-btn { display:none; } }
     .mobile-menu .cv-btn { display:inline-block !important; font-size:.85rem; color:var(--accent); border-color:var(--accent); }
 
     /* Lang toggle */
     .lang-toggle { display:flex; align-items:center; border:1px solid var(--border); border-radius:4px; overflow:hidden; }
     .lang-btn { background:none; border:none; color:var(--muted); padding:5px 11px; font-size:.72rem; font-weight:500; cursor:pointer; font-family:var(--font-body); transition:all .2s; }
-    .lang-btn.active { background:var(--text); color:#fff; }
+    .lang-btn.active { background:var(--text); color:var(--bg); }
     .lang-btn:not(.active):hover { color:var(--text); }
 
     /* Hamburger */
@@ -83,7 +83,7 @@
     .hamburger.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
 
     /* Mobile menu */
-    .mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; bottom:0; background:rgba(248,248,248,0.98); backdrop-filter:blur(12px); z-index:150; flex-direction:column; align-items:center; justify-content:center; gap:2rem; opacity:0; pointer-events:none; transition:opacity .3s var(--ease); }
+    .mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; bottom:0; background:rgba(11,14,20,0.98); backdrop-filter:blur(12px); z-index:150; flex-direction:column; align-items:center; justify-content:center; gap:2rem; opacity:0; pointer-events:none; transition:opacity .3s var(--ease); }
     .mobile-menu.open { opacity:1; pointer-events:all; }
     .mobile-menu a { font-size:clamp(1.4rem,5vw,2rem); font-weight:300; color:var(--text); text-decoration:none; transition:color .2s; }
     .mobile-menu a:hover { color:var(--accent); }
@@ -105,9 +105,9 @@
     .section-label { display:inline-flex; align-items:center; gap:8px; font-size:.68rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:12px; }
     .section-label::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--accent); flex-shrink:0; animation:sectionPulseDot 2.2s ease-out infinite; }
     @keyframes sectionPulseDot {
-      0% { box-shadow:0 0 0 0 rgba(16,127,97,.45); }
-      70% { box-shadow:0 0 0 8px rgba(16,127,97,0); }
-      100% { box-shadow:0 0 0 0 rgba(16,127,97,0); }
+      0% { box-shadow:0 0 0 0 rgba(57,226,176,.45); }
+      70% { box-shadow:0 0 0 8px rgba(57,226,176,0); }
+      100% { box-shadow:0 0 0 0 rgba(57,226,176,0); }
     }
     .section-title { font-family:'Bricolage Grotesque', sans-serif; font-size:clamp(1.8rem,4vw,2.6rem); font-weight:600; color:var(--text); letter-spacing:-.02em; line-height:1.2; margin-bottom:12px; position:relative; padding-bottom:16px; }
     .section-title::after { content:''; position:absolute; left:0; bottom:0; width:36px; height:2px; background:var(--accent); }
@@ -215,7 +215,7 @@
     /* EDUCATION */
     .edu-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:6px; overflow:hidden; }
     .edu-card { background:var(--card); padding:24px; transition:background .2s, box-shadow .2s; position:relative; z-index:1; }
-    .edu-card:hover { background:var(--bg); box-shadow:inset 0 0 0 1px rgba(16,127,97,.35), 0 0 24px rgba(16,127,97,.12); z-index:2; }
+    .edu-card:hover { background:var(--bg); box-shadow:inset 0 0 0 1px rgba(57,226,176,.35), 0 0 24px rgba(57,226,176,.12); z-index:2; }
     .edu-year { font-size:.72rem; color:var(--muted2); margin-bottom:10px; letter-spacing:.04em; }
     .edu-degree { font-size:.92rem; font-weight:500; color:var(--text); margin-bottom:5px; }
     .edu-school { font-size:.83rem; color:var(--muted); }
@@ -223,8 +223,9 @@
     /* PROJECTS */
     .projects-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:6px; overflow:hidden; }
     .project-card { background:var(--card); padding:28px; transition:background .2s, box-shadow .2s; position:relative; z-index:1; cursor:pointer; }
-    .project-card:hover { background:var(--bg); box-shadow:inset 0 0 0 1px rgba(16,127,97,.35), 0 0 24px rgba(16,127,97,.12); z-index:2; }
+    .project-card:hover { background:var(--bg); box-shadow:inset 0 0 0 1px rgba(57,226,176,.35), 0 0 24px rgba(57,226,176,.12); z-index:2; }
     .project-logo-wrap { height:40px; display:flex; align-items:center; margin-bottom:16px; }
+    .logo-chip { display:inline-flex; align-items:center; justify-content:center; background:#fff; border-radius:6px; padding:6px 12px; line-height:0; }
     .project-icon { font-size:1.4rem; margin-bottom:14px; display:block; }
     .project-title { font-size:.95rem; font-weight:500; color:var(--text); margin-bottom:8px; }
     .project-desc { font-size:.85rem; color:var(--muted); margin-bottom:16px; line-height:1.65; }
@@ -235,14 +236,14 @@
     /* SKILLS REDESIGN */
     .skills-new-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:6px; overflow:hidden; }
     .skill-block { background:var(--card); padding:24px; transition:background .2s, box-shadow .2s; position:relative; z-index:1; }
-    .skill-block:hover { background:var(--bg); box-shadow:inset 0 0 0 1px rgba(16,127,97,.35), 0 0 24px rgba(16,127,97,.12); z-index:2; }
+    .skill-block:hover { background:var(--bg); box-shadow:inset 0 0 0 1px rgba(57,226,176,.35), 0 0 24px rgba(57,226,176,.12); z-index:2; }
     .skill-block-header { display:flex; align-items:center; gap:12px; margin-bottom:1rem; padding-bottom:.75rem; border-bottom:1px solid var(--border); }
-    .skill-block-icon { width:32px; height:32px; border-radius:4px; background:var(--accent-dim); box-shadow:0 0 16px rgba(16,127,97,.18); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .skill-block-icon { width:32px; height:32px; border-radius:4px; background:var(--accent-dim); box-shadow:0 0 16px rgba(57,226,176,.18); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
     .skill-block-icon svg { width:16px; height:16px; stroke:var(--accent); fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
     .skill-block-title { font-size:.68rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
     .skill-tags { display:flex; flex-wrap:wrap; gap:6px; }
     .skill-tag { font-size:.78rem; color:var(--muted); background:var(--bg); border:1px solid var(--border); padding:4px 10px; border-radius:3px; }
-    .skill-tag.highlight { color:var(--accent); border-color:rgba(16,127,97,.2); background:var(--accent-dim); }
+    .skill-tag.highlight { color:var(--accent); border-color:rgba(57,226,176,.2); background:var(--accent-dim); }
     .lang-item { display:flex; align-items:center; justify-content:space-between; padding:5px 0; }
     .lang-name { font-size:.88rem; color:var(--text); }
     .lang-level { font-size:.72rem; color:var(--accent); }
@@ -269,7 +270,7 @@
     /* MODAL */
     .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.3); z-index:300; backdrop-filter:blur(4px); }
     .modal-overlay.open { display:block; }
-    .modal { display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%) scale(0.98); z-index:400; width:min(660px,92vw); max-height:85vh; overflow-y:auto; background:#fff; border:1px solid var(--border); border-radius:8px; padding:clamp(1.5rem,4vw,2.5rem); opacity:0; transition:opacity .2s var(--ease), transform .2s var(--ease); }
+    .modal { display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%) scale(0.98); z-index:400; width:min(660px,92vw); max-height:85vh; overflow-y:auto; background:var(--card); border:1px solid var(--border); border-radius:8px; padding:clamp(1.5rem,4vw,2.5rem); opacity:0; transition:opacity .2s var(--ease), transform .2s var(--ease); }
     .modal.open { display:block; opacity:1; transform:translate(-50%,-50%) scale(1); }
     .modal-close { position:absolute; top:1rem; right:1rem; background:var(--bg); border:1px solid var(--border); color:var(--muted); width:30px; height:30px; border-radius:4px; cursor:pointer; font-size:.8rem; display:flex; align-items:center; justify-content:center; transition:all .2s; }
     .modal-close:hover { color:var(--text); border-color:var(--border-h); }
@@ -288,13 +289,13 @@
     .modal-bullets { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:6px; }
     .modal-bullets li { font-size:.87rem; color:var(--muted); line-height:1.6; display:flex; align-items:flex-start; gap:8px; }
     .modal-bullets li::before { content:'—'; color:var(--accent); flex-shrink:0; font-size:.78rem; margin-top:2px; }
-    .modal-badge { display:inline-block; background:var(--accent-dim); color:var(--accent); border:1px solid rgba(16,127,97,.2); font-size:.7rem; padding:2px 7px; border-radius:3px; font-weight:500; }
+    .modal-badge { display:inline-block; background:var(--accent-dim); color:var(--accent); border:1px solid rgba(57,226,176,.2); font-size:.7rem; padding:2px 7px; border-radius:3px; font-weight:500; }
     .modal-section { margin-bottom:1.25rem; }
     .modal-section-title { font-size:.68rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; padding-bottom:5px; border-bottom:1px solid var(--border); }
     .modal-tags { display:flex; flex-wrap:wrap; gap:6px; padding-top:1rem; border-top:1px solid var(--border); }
 
     /* COACHING */
-    .coaching-profile { background:var(--accent-dim); border:1px solid rgba(16,127,97,.15); border-left:2px solid var(--accent); border-radius:0 4px 4px 0; padding:12px 16px; margin-top:12px; display:flex; flex-direction:column; gap:8px; }
+    .coaching-profile { background:var(--accent-dim); border:1px solid rgba(57,226,176,.15); border-left:2px solid var(--accent); border-radius:0 4px 4px 0; padding:12px 16px; margin-top:12px; display:flex; flex-direction:column; gap:8px; }
     .coaching-profile-item { display:flex; align-items:flex-start; gap:8px; }
     .coaching-profile-icon { color:var(--accent); font-size:.7rem; margin-top:4px; flex-shrink:0; }
     .coaching-profile-text { font-size:.83rem; color:var(--text); line-height:1.6; }
@@ -507,7 +508,7 @@
 <div class="modal" id="modal-voon">
   <button class="modal-close" onclick="closeModal()">✕</button>
   <div class="modal-header">
-    <img src="images/1774297481210_logo-voon-white.jpeg" alt="Voon Sports" style="height:36px;object-fit:contain;margin-right:4px">
+    <span class="logo-chip" style="margin-right:4px"><img src="images/1774297481210_logo-voon-white.jpeg" alt="Voon Sports" style="height:30px;object-fit:contain;"></span>
     <div>
       <div class="modal-title">Voon Sports</div>
       <div class="modal-subtitle" data-es="CTO · 2017 – Actualidad" data-en="CTO · 2017 – Present">CTO · 2017 – Actualidad</div>
@@ -541,7 +542,7 @@
 <div class="modal" id="modal-sunion">
   <button class="modal-close" onclick="closeModal()">✕</button>
   <div class="modal-header">
-    <img src="images/1774297481210_logo-sunion.jpeg" alt="Sunion" style="height:36px;object-fit:contain;margin-right:4px">
+    <span class="logo-chip" style="margin-right:4px"><img src="images/1774297481210_logo-sunion.jpeg" alt="Sunion" style="height:30px;object-fit:contain;"></span>
     <div>
       <div class="modal-title">Sunion</div>
       <div class="modal-subtitle">2023 – 2024</div>
@@ -576,9 +577,9 @@
   <button class="modal-close" onclick="closeModal()">✕</button>
   <div class="modal-header">
     <div style="display:flex;align-items:center;gap:8px;margin-right:8px">
-      <img src="images/1774297481210_logo-vasconia.jpeg" alt="Vasconia" style="height:44px;object-fit:contain;">
-      <img src="images/1774297481210_logo-uefa.jpeg" alt="UEFA" style="height:28px;width:28px;object-fit:contain;border-radius:50%;">
-      <img src="images/1774297481210_logo-rfef.jpg" alt="RFEF" style="height:28px;width:28px;object-fit:contain;border-radius:50%;">
+      <span class="logo-chip" style="padding:6px"><img src="images/1774297481210_logo-vasconia.jpeg" alt="Vasconia" style="height:36px;object-fit:contain;"></span>
+      <span class="logo-chip" style="border-radius:50%;padding:3px"><img src="images/1774297481210_logo-uefa.jpeg" alt="UEFA" style="height:24px;width:24px;object-fit:contain;border-radius:50%;"></span>
+      <span class="logo-chip" style="border-radius:50%;padding:3px"><img src="images/1774297481210_logo-rfef.jpg" alt="RFEF" style="height:24px;width:24px;object-fit:contain;border-radius:50%;"></span>
     </div>
     <div>
       <div class="modal-title">Club Deportivo Vasconia</div>
@@ -655,14 +656,14 @@
   <p class="section-sub reveal" data-es="Haz clic en cada proyecto para ver más detalle." data-en="Click each project to see more detail.">Haz clic en cada proyecto para ver más detalle.</p>
   <div class="projects-grid">
     <div class="project-card reveal reveal-delay-1" onclick="openModal('voon')" style="cursor:pointer">
-      <div class="project-logo-wrap" style="height:48px;display:flex;align-items:center;margin-bottom:18px"><img src="images/1774297481210_logo-voon-white.jpeg" alt="Voon Sports" style="max-height:36px;max-width:140px;object-fit:contain;"></div>
+      <div class="project-logo-wrap" style="height:48px;display:flex;align-items:center;margin-bottom:18px"><span class="logo-chip"><img src="images/1774297481210_logo-voon-white.jpeg" alt="Voon Sports" style="max-height:32px;max-width:130px;object-fit:contain;"></span></div>
       <div class="project-title">Voon Sports</div>
       <div class="project-desc" data-es="Tecnología aplicada al entrenamiento deportivo, desde el primer prototipo hasta el producto final." data-en="Technology applied to sports training, from first prototype to final product.">Tecnología aplicada al entrenamiento deportivo, desde el primer prototipo hasta el producto final.</div>
       <div class="project-tags"><span class="tag">CTO</span><span class="tag">Hardware</span><span class="tag">Python</span><span class="tag">PLC</span><span class="tag">Power BI</span></div>
       <div class="project-more" data-es="Ver más →" data-en="See more →">Ver más →</div>
     </div>
     <div class="project-card reveal reveal-delay-2" onclick="openModal('sunion')" style="cursor:pointer">
-      <div class="project-logo-wrap" style="height:48px;display:flex;align-items:center;margin-bottom:18px"><img src="images/1774297481210_logo-sunion.jpeg" alt="Sunion" style="max-height:36px;max-width:120px;object-fit:contain;"></div>
+      <div class="project-logo-wrap" style="height:48px;display:flex;align-items:center;margin-bottom:18px"><span class="logo-chip"><img src="images/1774297481210_logo-sunion.jpeg" alt="Sunion" style="max-height:32px;max-width:110px;object-fit:contain;"></span></div>
       <div class="project-title">Sunion</div>
       <div class="project-desc" data-es="Proyecto emprendedor en energía solar: viabilidad técnica, dimensionamiento y gestión de subvenciones para particulares y empresas." data-en="Entrepreneurial project in solar energy: technical feasibility, sizing and grant management for households and businesses.">Proyecto emprendedor en energía solar: viabilidad técnica, dimensionamiento y gestión de subvenciones para particulares y empresas.</div>
       <div class="project-tags"><span class="tag" data-es="Emprendimiento" data-en="Entrepreneurship">Emprendimiento</span><span class="tag" data-es="Energía Solar" data-en="Solar Energy">Energía Solar</span><span class="tag" data-es="Ingeniería" data-en="Engineering">Ingeniería</span></div>
@@ -670,10 +671,10 @@
     </div>
     <div class="project-card reveal reveal-delay-3" onclick="openModal('vasconia')" style="cursor:pointer">
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
-        <img src="images/1774297481210_logo-vasconia.jpeg" alt="Club Deportivo Vasconia" style="max-height:48px;max-width:52px;object-fit:contain;">
+        <span class="logo-chip" style="padding:6px"><img src="images/1774297481210_logo-vasconia.jpeg" alt="Club Deportivo Vasconia" style="max-height:40px;max-width:44px;object-fit:contain;"></span>
         <div style="display:flex;gap:8px;align-items:center">
-          <img src="images/1774297481210_logo-uefa.jpeg" alt="UEFA" style="height:28px;width:28px;object-fit:contain;border-radius:50%;">
-          <img src="images/1774297481210_logo-rfef.jpg" alt="RFEF" style="height:28px;width:28px;object-fit:contain;border-radius:50%;">
+          <span class="logo-chip" style="border-radius:50%;padding:3px"><img src="images/1774297481210_logo-uefa.jpeg" alt="UEFA" style="height:24px;width:24px;object-fit:contain;border-radius:50%;"></span>
+          <span class="logo-chip" style="border-radius:50%;padding:3px"><img src="images/1774297481210_logo-rfef.jpg" alt="RFEF" style="height:24px;width:24px;object-fit:contain;border-radius:50%;"></span>
         </div>
       </div>
       <div class="project-title">Club Deportivo Vasconia</div>
